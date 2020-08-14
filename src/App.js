@@ -2,6 +2,8 @@ import "semantic-ui-css/semantic.min.css";
 
 import React from "react";
 import Accordion from "./components/Accordion";
+import Search from "./components/Search";
+
 const items = [
   { title: " What is a taco?", content: " Amazing handheld assault weapon" },
   {
@@ -17,7 +19,7 @@ export default () => {
   return (
     <div>
       {" "}
-      Holla Widgets App! <Accordion items={items} />{" "}
+      Holla Widgets App! <Search></Search>{" "}
     </div>
   );
 };
