@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "semantic-ui-css/semantic.min.css";
 
-function App() {
+import React from "react";
+import Accordion from "./components/Accordion";
+const items = [
+  { title: " What is a taco?", content: " Amazing handheld assault weapon" },
+  {
+    title: "Why eat Tacos? ",
+    content: "I thought we answered that before....",
+  },
+  {
+    title: " this is the third column heading",
+    content: "Yeah I hope this accordion works out great",
+  },
+];
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {" "}
+      Holla Widgets App! <Accordion items={items} />{" "}
     </div>
   );
-}
-
-export default App;
+};
