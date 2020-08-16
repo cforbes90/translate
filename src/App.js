@@ -1,6 +1,6 @@
 import "semantic-ui-css/semantic.min.css";
 
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
@@ -18,8 +18,8 @@ const items = [
 ];
 
 const options = [
-  { label: "The Color Red", value: "red" },
-  { label: "The Beautiful Blue", value: "red" },
+  { label: "The Sunset Red", value: "red" },
+  { label: "The Beautiful Blue", value: "blue" },
   {
     label: "Sound of Music Green",
     value: "green",
@@ -27,10 +27,16 @@ const options = [
 ];
 
 export default () => {
+  const [selected, setSelected] = useState(options[0]);
   return (
     <div>
       {" "}
-      Holla Widgets App! <Dropdown options={options} />{" "}
+      Holla Widgets App!{" "}
+      <Dropdown
+        options={options}
+        selected={selected}
+        onSelectedChange={setSelected}
+      />{" "}
     </div>
   );
 };
