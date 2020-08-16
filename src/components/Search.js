@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Search = () => {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("tulips");
   const [results, setResults] = useState([]);
 
   //console.log("I run with every render");
@@ -25,13 +25,24 @@ const Search = () => {
 
       setResults(data.query.search);
     };
-    //console.log("I  run at initial render and every render");
 
-    //conditional rendering based off if term has stuff in there
-    if (term) {
+    if (term && !results.length) {
       search();
+    } else {
+      //console.log("I  run at initial render and every render");
+      //setTimeout actually returns a random 3 digit number. We can use that number to cancel it
+      const timeoutId = setTimeout(() => {
+        //conditional rendering based off if term has stuff in there
+        if (term) {
+          search();
+        }
+      }, 5000);
+      //useEffect is allowed to return a function. We can use that function to clear the timeout
+      //clearTimeout is a built in Javascript function just like setTimeout
+      return () => {
+        clearTimeout(timeoutId);
+      };
     }
-    console.log("this is results", results);
   }, [term]);
 
   const renderedResults = results.map((result) => {

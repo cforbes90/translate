@@ -3,6 +3,7 @@ import "semantic-ui-css/semantic.min.css";
 import React from "react";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
+import Dropdown from "./components/Dropdown";
 
 const items = [
   { title: " What is a taco?", content: " Amazing handheld assault weapon" },
@@ -15,11 +16,21 @@ const items = [
     content: "Yeah I hope this accordion works out great",
   },
 ];
+
+const options = [
+  { label: "The Color Red", value: "red" },
+  { label: "The Beautiful Blue", value: "red" },
+  {
+    label: "Sound of Music Green",
+    value: "green",
+  },
+];
+
 export default () => {
   return (
     <div>
       {" "}
-      Holla Widgets App! <Search></Search>{" "}
+      Holla Widgets App! <Dropdown options={options} />{" "}
     </div>
   );
 };
